@@ -14,11 +14,11 @@ public class NumberGeneratorService {
 
     private static void writeRandomNumbersToFile(int[] threshHolds) {
 
-        List<List<Integer>> output = NumberGeneratorService.createListOfRandomNumberLists(threshHolds);
+        List<List<Integer>> listOfRandomNumberLists = NumberGeneratorService.createListOfRandomNumberLists(threshHolds);
 
         try (FileWriter file = new FileWriter("test.output.txt")) {
 
-            for (List<Integer> randomList : output) {
+            for (List<Integer> randomList : listOfRandomNumberLists) {
 
                 if (randomList.contains(20)) {
                     System.out.println(randomList);
@@ -57,7 +57,6 @@ public class NumberGeneratorService {
             randomList.add(random.nextInt((20 - 1) + 1) + 1);
             counter--;
         }
-
         return randomList;
     }
 }
